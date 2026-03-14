@@ -1,0 +1,294 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+
+
+  :root {
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'DM Sans', system-ui, sans-serif;
+    --transition:    0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+
+    @apply bg-offwhite text-dark antialiased overflow-x-hidden leading-relaxed;
+  }
+
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply leading-tight;
+  }
+
+  img {
+    @apply block max-w-full;
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  /* Remove default button styles */
+  button {
+    @apply cursor-pointer;
+    font-family: inherit;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar       { @apply w-1.5; }
+  ::-webkit-scrollbar-track { @apply bg-warm; }
+  ::-webkit-scrollbar-thumb { @apply bg-crimson rounded-full; }
+}
+
+
+/* ============================================================
+   COMPONENTS LAYER
+   Reusable multi-utility class combinations.
+   Define once, use with a single class name anywhere.
+   ============================================================ */
+@layer components {
+
+  /* ── Buttons ──────────────────────────────────────────────── */
+
+  /* Usage: <button className="btn-primary">Apply Now</button> */
+  .btn-primary {
+    @apply inline-flex items-center gap-2
+           bg-crimson text-white
+           text-sm font-semibold tracking-wide
+           px-7 py-3.5 rounded
+           transition-all duration-300
+           hover:-translate-y-px hover:bg-crimson-dark hover:shadow-crimson
+           focus:outline-none focus:ring-2 focus:ring-crimson focus:ring-offset-2
+           disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none;
+  }
+
+  /* Usage: <button className="btn-secondary">Learn More</button> */
+  .btn-secondary {
+    @apply inline-flex items-center gap-2
+           bg-transparent text-navy
+           text-sm font-semibold
+           px-7 py-3.5 rounded
+           border border-navy
+           transition-all duration-300
+           hover:bg-navy hover:text-white
+           focus:outline-none focus:ring-2 focus:ring-navy focus:ring-offset-2;
+  }
+
+  /* Usage: <a className="btn-gold">Apply for 2025 →</a> */
+  .btn-gold {
+    @apply inline-flex items-center gap-2
+           bg-gold text-navy
+           text-sm font-bold
+           px-7 py-3.5 rounded
+           transition-all duration-300
+           hover:bg-gold-light hover:-translate-y-px hover:shadow-gold
+           focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2;
+  }
+
+  /* Used on dark hero backgrounds */
+  .btn-outline-white {
+    @apply inline-flex items-center gap-2
+           bg-transparent text-white
+           text-sm font-semibold
+           px-7 py-3.5 rounded
+           border border-white/40
+           transition-all duration-300
+           hover:bg-white/10 hover:border-white
+           focus:outline-none focus:ring-2 focus:ring-white/50;
+  }
+
+
+  /* ── Section Typography ───────────────────────────────────── */
+
+  /* Small uppercase label above section headings
+     e.g. "Academic Excellence" */
+  .section-label {
+    @apply block text-[11px] font-semibold tracking-[3px] uppercase
+           text-crimson mb-3;
+  }
+
+  /* Main section heading — responsive size */
+  .section-title {
+    font-family: var(--font-display);
+    @apply text-3xl md:text-4xl lg:text-5xl
+           font-bold text-navy leading-tight mb-4;
+  }
+
+  /* Paragraph below section heading */
+  .section-sub {
+    @apply text-base text-mid leading-relaxed max-w-xl;
+  }
+
+
+  /* ── Tag / Badge Pill ─────────────────────────────────────── */
+
+  /* Usage: <span className="tag">Engineering</span> */
+  .tag {
+    @apply inline-block bg-crimson/10 text-crimson
+           text-[11px] font-semibold tracking-wide
+           px-2.5 py-1 rounded-full;
+  }
+
+
+  /* ── Cards ────────────────────────────────────────────────── */
+
+  /* Base card — apply to any card container */
+  .card {
+    @apply bg-white rounded-md border border-black/[0.06]
+           transition-all duration-300
+           hover:-translate-y-1 hover:shadow-card hover:border-crimson/20;
+  }
+
+
+  /* ── Form Controls ────────────────────────────────────────── */
+
+  /* Usage: <label className="form-label">Full Name</label> */
+  .form-label {
+    @apply block text-[11px] font-semibold tracking-widest uppercase
+           text-mid mb-1.5;
+  }
+
+  /* Usage: <input className="form-input" /> */
+  .form-input {
+    @apply w-full px-4 py-3 rounded border border-black/10 bg-white
+           text-sm text-dark placeholder-light
+           outline-none transition-all duration-200
+           focus:border-crimson focus:ring-2 focus:ring-crimson/10;
+  }
+
+  /* Add to form-input when field has a validation error */
+  .form-input-error {
+    @apply border-red-400 ring-2 ring-red-100
+           focus:border-red-500 focus:ring-red-200;
+  }
+
+  /* Inline error message below a field */
+  .form-error-msg {
+    @apply text-xs text-red-600 mt-1 block;
+  }
+
+
+  /* ── Loading Spinner ──────────────────────────────────────── */
+
+  /* Usage: <span className="spinner" /> inside a button */
+  .spinner {
+    @apply w-5 h-5 rounded-full
+           border-2 border-white/30 border-t-white
+           animate-spin;
+  }
+
+
+  /* ── Toast Notifications ──────────────────────────────────── */
+
+  /* Base toast wrapper */
+  .toast {
+    @apply fixed bottom-8 right-8 z-[9999]
+           px-6 py-4 rounded-xl
+           text-sm font-medium max-w-sm
+           shadow-lg animate-slide-in-right;
+  }
+
+  .toast-success {
+    @apply bg-emerald-900 text-emerald-50 border-l-4 border-emerald-400;
+  }
+
+  .toast-error {
+    @apply bg-red-900 text-red-50 border-l-4 border-red-400;
+  }
+
+
+  /* ── Skeleton Loader ──────────────────────────────────────── */
+
+  /* Usage: <div className="skeleton h-48" /> */
+  .skeleton {
+    @apply rounded-md bg-gradient-to-r from-warm via-white to-warm
+           bg-[length:200%_100%] animate-shimmer;
+  }
+
+
+  /* ── Section Container ────────────────────────────────────── */
+
+  /* Max-width centered wrapper — same as Tailwind's container
+     but locked to our custom max-width of 1200px */
+  .section-container {
+    @apply max-w-8xl mx-auto px-6;
+  }
+}
+
+
+/* ============================================================
+   UTILITIES LAYER
+   One-off helpers that don't fit Tailwind's built-in set.
+   ============================================================ */
+@layer utilities {
+
+  /* Custom font family utilities
+     Usage: <h1 className="font-display"> */
+  .font-display { font-family: var(--font-display); }
+  .font-body    { font-family: var(--font-body);    }
+
+  /* ── Gradient Backgrounds ─────────────────────────────────── */
+
+  /* Hero section: navy → navy-light → crimson-dark → crimson */
+  .bg-hero {
+    background: linear-gradient(
+      135deg,
+      #0F1C3F 0%,
+      #1A2D5A 35%,
+      #7A1515 70%,
+      #9B1C1C 100%
+    );
+  }
+
+  /* Stats banner + admission form background */
+  .bg-dark-section {
+    background: linear-gradient(
+      150deg,
+      #0F1C3F 0%,
+      #0A1228 50%,
+      #7A1515 100%
+    );
+  }
+
+  /* Admission form section background — slightly more navy */
+  .bg-admission-section {
+    background: linear-gradient(
+      150deg,
+      #0F1C3F 0%,
+      #0A1228 60%,
+      #7A1515 100%
+    );
+  }
+
+  /* ── Text Gradient ────────────────────────────────────────── */
+
+  /* Gold shimmer text — used on hero heading highlight
+     Usage: <span className="text-gradient-gold">Sharda University</span> */
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #C9A84C 0%, #E8C97A 100%);
+  }
+
+  /* ── Animation Delays ─────────────────────────────────────── */
+  /* Usage: <div className="animate-fade-up delay-100"> */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+
+  /* Pair with animate-fade-up to start invisible */
+  .animation-fill-both {
+    animation-fill-mode: both;
+  }
+}

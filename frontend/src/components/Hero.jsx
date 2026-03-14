@@ -36,6 +36,10 @@ export default function Hero() {
   const [success, setSuccess] = useState('');
   const [apiErr,  setApiErr]  = useState('');
 
+  useEffect(() => {
+    api.get('/api/health').catch(() => {});
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm(f => ({ ...f, [name]: value }));

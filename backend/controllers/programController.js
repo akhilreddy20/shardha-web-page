@@ -1,4 +1,4 @@
-import Program from '../models/Program.js';
+import Program from '../models/program.js';
 
 const defaultPrograms = [
   { title: 'B.Tech Computer Science', slug: 'btech-cse', category: 'engineering', specialization: 'AI & Machine Learning', tags: ['AI & ML', 'Cloud Computing', 'Data Science'], featured: true },

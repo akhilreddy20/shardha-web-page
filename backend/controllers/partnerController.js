@@ -1,4 +1,4 @@
-import Partner from '../models/Partner.js';
+import Partner from '../models/partner.js';
 
 const SEED_DATA = [
   {

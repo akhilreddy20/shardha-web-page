@@ -1,4 +1,4 @@
-import Placement from '../models/Placement.js';
+import Placement from '../models/placement.js';
 
 const SEED_DATA = [
   { name: 'Rohit Jain',    degree: 'B.Tech CSE', company: 'Amazon',       package: '₹1 Crore', year: 2024 },

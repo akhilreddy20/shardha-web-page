@@ -49,7 +49,7 @@ export default function Hero() {
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setLoading(true);
     try {
-      const res = await api.post('/admissions', form);
+      const res = await api.post('/api/admissions', form);
       setSuccess(res.data.message || "Application submitted! We'll contact you shortly.");
       setForm(INITIAL); setErrors({});
     } catch (err) {

@@ -25,7 +25,7 @@ export default function GlobalTieUps() {
   const [selected,  setSelected]  = useState(FALLBACK[0]);
 
   useEffect(() => {
-    api.get('/partners')
+    api.get('/api/partners')
       .then(res => {
         if (res.data.data?.length) {
           setPartners(res.data.data);

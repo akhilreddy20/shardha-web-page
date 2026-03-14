@@ -34,7 +34,7 @@ export default function Placements() {
   const [placements, setPlacements] = useState(FALLBACK);
 
   useEffect(() => {
-    api.get('/placements')
+    api.get('/api/placements')
       .then(res => { if (res.data.data?.length) setPlacements(res.data.data); })
       .catch(() => {});
   }, []);

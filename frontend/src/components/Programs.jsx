@@ -30,7 +30,7 @@ export default function Programs() {
   const [loading,   setLoading]   = useState(true);
 
   useEffect(() => {
-    api.get('/programs')
+    api.get('/api/programs')
       .then(res => { if (res.data.data?.length) setPrograms(res.data.data); })
       .catch(() => {})
       .finally(() => setLoading(false));

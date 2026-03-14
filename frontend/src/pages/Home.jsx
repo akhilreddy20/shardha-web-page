@@ -1,9 +1,9 @@
 import Hero        from '../components/Hero.jsx';
 import Marquee     from '../components/Marquee.jsx';
 import Programs    from '../components/Programs.jsx';
-import WhyStudy    from '../components/WhyStudy.jsx';
-import HallOfFame  from '../components/HallOfFame.jsx';
-import GlobalTieUps from '../components/GlobalTieUps.jsx';
+import WhyStudy    from '../components/Whystudy.jsx';
+import HallOfFame  from '../components/HallOffame.jsx';
+import GlobalTieUps from '../components/GlobaltieUps.jsx';
 import Placements  from '../components/Placements.jsx';
 
 

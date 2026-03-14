@@ -1,4 +1,4 @@
-import Admission from '../models/Admission.js';
+import Admission from '../models/admission.js';
 
 // POST /api/admissions  — submit a new enquiry
 export const createAdmission = async (req, res) => {
